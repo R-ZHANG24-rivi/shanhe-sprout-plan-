@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&family=Nunito:wght@400;600;700;800;900&display=swap');
+@import "tailwindcss";
+
+/* 使用 npm 包内字体，构建时会被 Vite 打包，避免依赖 public 下缺失的 ttf */
+@font-face {
+  font-family: 'AlimamaDaoLiTi';
+  src:
+    url('../node_modules/@fontpkg/alimama-dao-li-ti/AlimamaDaoLiTi.woff2') format('woff2'),
+    url('../node_modules/@fontpkg/alimama-dao-li-ti/AlimamaDaoLiTi.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --font-sans: "Nunito", ui-rounded, "Hiragino Maru Gothic ProN", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --font-title: "AlimamaDaoLiTi", "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
+@layer utilities {
+  .clay-title {
+    font-family: 'AlimamaDaoLiTi', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    color: #ffffff;
+    text-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15), 0px 2px 4px rgba(0, 0, 0, 0.1);
+    letter-spacing: 0.05em;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-linear-to-br from-[#e8853a] to-[#f0a050] text-white border-none rounded-full px-6 py-2.5 text-sm font-semibold cursor-pointer transition-transform active:scale-95 shadow-[0_4px_14px_rgba(220,130,50,0.35)] tracking-wide;
+  }
+  .btn-grass {
+    @apply bg-linear-to-br from-[#5aba50] to-[#3a9838] text-white border-none rounded-full px-5.5 py-2.5 text-[13px] font-semibold cursor-pointer transition-transform active:scale-95 shadow-[0_4px_12px_rgba(60,140,50,0.3)];
+  }
+  .btn-soft {
+    @apply bg-white text-[#4a8a40] border-2 border-[#a8d898] rounded-full px-5 py-2 text-[13px] font-semibold cursor-pointer transition-all active:bg-[#eaf5e4];
+  }
+  .cream-card {
+    @apply bg-linear-to-br from-[#fffef8] to-[#faf4e6] rounded-3xl shadow-[0_4px_16px_rgba(120,90,40,0.10),0_1px_4px_rgba(0,0,0,0.05)] border-[1.5px] border-[rgba(210,190,150,0.4)];
+  }
+  .green-card {
+    @apply bg-linear-to-br from-[#f0fce8] to-[#e4f5d8] rounded-3xl shadow-[0_4px_14px_rgba(60,130,40,0.10)] border-[1.5px] border-[rgba(140,200,110,0.35)];
+  }
+  .warm-card {
+    @apply bg-linear-to-br from-[#fff8ee] to-[#fdf0dc] rounded-3xl shadow-[0_4px_14px_rgba(180,120,40,0.10)] border-[1.5px] border-[rgba(220,180,110,0.35)];
+  }
+  .progress-track {
+    @apply h-2.5 rounded-full bg-black/10 overflow-hidden;
+  }
+  .progress-fill {
+    @apply h-full rounded-full transition-[width] duration-700 ease-[cubic-bezier(0.34,1.2,0.64,1)];
+  }
+  .stage-badge {
+    @apply inline-flex items-center gap-1 rounded-full px-3 py-1 text-[11px] font-bold tracking-wide;
+  }
+  .news-row {
+    @apply bg-linear-to-br from-[#fffef8] to-[#faf4e4] rounded-2xl p-3.5 mx-4 mb-2 border-[1.5px] border-[rgba(200,180,130,0.25)] shadow-[0_2px_8px_rgba(100,70,20,0.07)];
+  }
+  .task-row {
+    @apply bg-linear-to-br from-[#fffef8] to-[#faf4e4] rounded-2xl p-3 mx-4 mb-2 flex items-center gap-3 border-[1.5px] border-[rgba(200,180,130,0.25)] shadow-[0_2px_8px_rgba(100,70,20,0.06)];
+  }
+}
+
+@keyframes bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.bobbing {
+  animation: bob 3s ease-in-out infinite;
+}
+
+@keyframes ring-pulse {
+  0%, 100% { opacity: 0.5; r: 10; }
+  50% { opacity: 0; r: 16; }
+}
+
+.dot-ring {
+  animation: ring-pulse 2.8s ease-in-out infinite;
+}
+
+/* Custom scrollbar for the app container */
+#page-wrap::-webkit-scrollbar {
+  width: 4px;
+}
+#page-wrap::-webkit-scrollbar-track {
+  background: transparent;
+}
+#page-wrap::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.1);
+  border-radius: 10px;
+}
