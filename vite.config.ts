@@ -6,7 +6,7 @@ import {defineConfig, loadEnv} from 'vite';
 export default defineConfig(({mode}) => {
   const env = loadEnv(mode, '.', '');
   return {
-    base: '/shanhe-sprout-plan-/', // For GitHub Pages deployment
+    base: mode === 'production' ? '/shanhe-sprout-plan-/' : '/', // Adjust base for GitHub Pages deployment in production
     plugins: [react(), tailwindcss()],
     define: {
       'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY),
