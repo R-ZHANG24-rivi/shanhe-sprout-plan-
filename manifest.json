@@ -1,0 +1,18 @@
+{
+  "name": "山河发芽计划",
+  "short_name": "山河发芽",
+  "description": "3D黏土风格中国地图可视化",
+  "start_url": "/shanhe-sprout-plan-/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#4a90e2",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/shanhe-sprout-plan-/china_3d_clay_map.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
